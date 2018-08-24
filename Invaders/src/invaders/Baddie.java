@@ -3,7 +3,7 @@ package invaders;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
-import java.io.File;
+import java.net.URL;
 
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
@@ -31,11 +31,11 @@ public class Baddie
 		
 		try
 		{
-			File f = new File("baddie1.png");
-			BufferedImage bi = ImageIO.read(f);
+			URL url = Baddie.class.getResource("/baddie1.png");
+			BufferedImage bi = ImageIO.read(url);
 			retval.img1 = bi;
-			File f2 = new File("baddie2.png");
-			BufferedImage bi2 = ImageIO.read(f2);
+			URL url2 = Baddie.class.getResource("/baddie2.png");
+			BufferedImage bi2 = ImageIO.read(url2);
 			retval.img2 = bi2;
 			retval.width = bi.getWidth();
 			retval.height = bi.getHeight();

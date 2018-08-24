@@ -6,7 +6,7 @@ import java.awt.MouseInfo;
 import java.awt.Point;
 import java.awt.PointerInfo;
 import java.awt.image.BufferedImage;
-import java.io.File;
+import java.net.URL;
 
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
@@ -25,8 +25,8 @@ public class Ship
 		Ship retval = new Ship();
 		try
 		{
-			File f = new File("ship.png");
-			BufferedImage bi = ImageIO.read(f);
+			URL url = Ship.class.getResource("/ship.png");
+			BufferedImage bi = ImageIO.read(url);
 			retval.img = bi;
 			retval.width = bi.getWidth();
 			retval.height = bi.getHeight();

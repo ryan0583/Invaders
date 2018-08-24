@@ -12,7 +12,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.io.FileInputStream;
+import java.io.InputStream;
+import java.net.URL;
 import java.util.ArrayList;
 
 import javax.swing.AbstractAction;
@@ -345,7 +346,7 @@ public class GameFrame extends JPanel
 		}
 	}
 
-	public void playSound(final String fileName) 
+	private void playSound(final String fileName) 
 	{
 		Runnable r = new Runnable() 
 		{
@@ -353,8 +354,9 @@ public class GameFrame extends JPanel
 		    {
 				try
 				{
-					FileInputStream fis = new FileInputStream(fileName);
-			 		Player playMP3 = new Player(fis);
+					URL url = GameFrame.class.getResource("/" + fileName);
+					InputStream is = url.openStream();
+			 		Player playMP3 = new Player(is);
 			 		playMP3.play();
 				}
 				catch (Exception e)
